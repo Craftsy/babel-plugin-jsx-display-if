@@ -3,7 +3,7 @@ export default function jsxIfTransform({Plugin, types: t }) {
         visitor: {
             JSXElement: function transform(node, parent) {
                 let ifAttributes = node.openingElement.attributes
-                    .filter(({type, name}) => type === 'JSXAttribute' && name.name === 'if');
+                    .filter(({type, name}) => type === 'JSXAttribute' && name.name === 'display-if');
                 if (!ifAttributes.length) {
                     return;
                 }
