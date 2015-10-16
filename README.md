@@ -46,7 +46,7 @@ class Example extends React.Component {
         } = this.props;
         return (
             <div>
-                <ColorSwatch if={color} color={color}/>
+                <ColorSwatch display-if={color} color={color}/>
             </div>
         );
     }
