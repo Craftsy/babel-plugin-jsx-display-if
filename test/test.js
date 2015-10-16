@@ -4,7 +4,7 @@ import b from 'js-beautify';
 
 describe('jsx-if', function() {
 	it('can use an expression as a conditional', function() {
-		const code = '<div if={yay} a="b"/>';
+		const code = '<div display-if={yay} a="b"/>';
 		const expected = 'yay ? j("div", { a: "b" }) : null;';
 		const compiled = transform(code, {
             plugins: ['../index'],
@@ -24,7 +24,7 @@ describe('jsx-if', function() {
         expect(b(compiled)).to.equal(b(expected));
     });
     it('can use a constant as a conditional', function() {
-        const code = '<div if={true}/>';
+        const code = '<div display-if={true}/>';
         const expected = 'true ? j("div", null) : null;';
         const compiled = transform(code, {
             plugins: ['../index'],
@@ -34,7 +34,7 @@ describe('jsx-if', function() {
         expect(b(compiled)).to.equal(b(expected));
     });
     it('can be used on JSX elements with a closing element and children', function() {
-        const code = '<div if={true}>yay</div>';
+        const code = '<div display-if={true}>yay</div>';
         const expected = `
             true ? j(
                 "div",
@@ -49,7 +49,7 @@ describe('jsx-if', function() {
         expect(b(compiled)).to.equal(b(expected));
     });
     it('can be used on JSXElements nested in other JSXElements', function() {
-        const code = '<div><div if={yay}/></div>';
+        const code = '<div><div display-if={yay}/></div>';
         const expected = `
             j(
                 "div",
@@ -67,7 +67,7 @@ describe('jsx-if', function() {
         const code = `
             <div>
                 { a.map(() =>
-                   <div if={yay}/>
+                   <div display-if={yay}/>
                 )}
             </div>`;
         const expected = `
@@ -87,8 +87,8 @@ describe('jsx-if', function() {
     });
     it('can be nested', function() {
         const code = `
-            <span if={boo}>
-                <div if={yay}/>
+            <span display-if={boo}>
+                <div display-if={yay}/>
             </span>`;
         const expected = `
             boo ? j(
