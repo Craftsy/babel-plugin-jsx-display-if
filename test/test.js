@@ -13,6 +13,16 @@ describe('jsx-if', function() {
 		}).code;
 		expect(b(compiled)).to.equal(b(expected));
 	});
+    it('ignores spread attributes', function() {
+        const code = '<div {...someAttrs}/>';
+        const expected = 'j("div", someAttrs);';
+        const compiled = transform(code, {
+            plugins: ['../index'],
+            blacklist: ["useStrict"],
+            jsxPragma: 'j',
+        }).code;
+        expect(b(compiled)).to.equal(b(expected));
+    });
     it('can use a constant as a conditional', function() {
         const code = '<div if={true}/>';
         const expected = 'true ? j("div", null) : null;';
