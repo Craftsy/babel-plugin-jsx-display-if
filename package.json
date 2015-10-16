@@ -25,6 +25,7 @@
     "babel-core": "^5.8.25"
   },
   "devDependencies": {
+    "babel": "^5.8.23",
     "chai": "^3.3.0",
     "js-beautify": "^1.5.10",
     "mocha": "^2.3.3"

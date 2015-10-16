@@ -13,8 +13,9 @@ function jsxIfTransform(_ref) {
         visitor: {
             JSXElement: function transform(node, parent) {
                 var ifAttributes = node.openingElement.attributes.filter(function (_ref2) {
+                    var type = _ref2.type;
                     var name = _ref2.name;
-                    return name.name === 'if';
+                    return type === 'JSXAttribute' && name.name === 'if';
                 });
                 if (!ifAttributes.length) {
                     return;
