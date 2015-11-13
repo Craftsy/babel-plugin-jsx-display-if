@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-jsx-if",
+  "name": "babel-plugin-jsx-display-if",
   "version": "1.0.0",
   "description": "babel plugin to add conditional display ala ng-if to jsx",
   "main": "dist/index.js",
@@ -13,6 +13,7 @@
     "jsx",
     "react",
     "ng-if",
+    "display-if",
     "conditional"
   ],
   "author": "Craftsy and Sympoz Inc.",
@@ -20,7 +21,7 @@
     "Don Abrams <don.abrams@craftsy.com>"
   ],
   "license": "MIT",
-  "repository": "craftsy/babel-plugin-jsx-if",
+  "repository": "craftsy/babel-plugin-jsx-display-if",
   "dependencies": {
     "babel-core": "^5.8.25"
   },

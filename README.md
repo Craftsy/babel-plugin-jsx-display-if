@@ -1,9 +1,9 @@
-babel-plugin-jsx-if
+babel-plugin-jsx-display-if
 ===================
 
 We use JSX because we want HTML gurus to maintain the JSX in our React Components.
 
-These are hard for non-JS people to modify and understand:
+These examples are hard for non-JS people to modify and understand:
 
 ```javascript
 class Example extends React.Component {
@@ -56,13 +56,13 @@ class Example extends React.Component {
 Use
 ---
 
-Install with `npm install --save-dev babel-plugin-jsx-if`. Then, add the plugin section to your .babelrc:
+Install with `npm install --save-dev babel-plugin-jsx-display-if`. Then, add the plugin section to your .babelrc:
 
 ```
 {
     "optional": [...],
     "loose": [...],
-    "plugins": ["jsx-if"]
+    "plugins": ["jsx-display-if"]
 }
 ```
 
@@ -70,7 +70,7 @@ If for some reason you are using babel programatically:
 
 ```javascript
 babel.transform(code, {
-    plugins: ['jsx-if'],
+    plugins: ['jsx-display-if'],
 }).code
 ```
 
