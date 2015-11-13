@@ -56,7 +56,7 @@ class Example extends React.Component {
 Use
 ---
 
-Install with 'npm install --save-dev babel-plugin-jsx-if'. Then, add the plugin section to your .babelrc:
+Install with `npm install --save-dev babel-plugin-jsx-if`. Then, add the plugin section to your .babelrc:
 
 ```
 {
