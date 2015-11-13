@@ -9,7 +9,7 @@ function jsxIfTransform(_ref) {
     var Plugin = _ref.Plugin;
     var t = _ref.types;
 
-    return new Plugin('jsx-if', {
+    return new Plugin('jsx-display-if', {
         visitor: {
             JSXElement: function transform(node, parent) {
                 var ifAttributes = node.openingElement.attributes.filter(function (_ref2) {

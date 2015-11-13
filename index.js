@@ -1,5 +1,5 @@
 export default function jsxIfTransform({Plugin, types: t }) {
-    return new Plugin('jsx-if', {
+    return new Plugin('jsx-display-if', {
         visitor: {
             JSXElement: function transform(node, parent) {
                 let ifAttributes = node.openingElement.attributes
