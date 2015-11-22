@@ -14,7 +14,8 @@
     "react",
     "ng-if",
     "display-if",
-    "conditional"
+    "conditional",
+    "react-component"
   ],
   "author": "Craftsy and Sympoz Inc.",
   "contributors": [
