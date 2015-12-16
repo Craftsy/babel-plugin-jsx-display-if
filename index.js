@@ -1,7 +1,8 @@
-export default function jsxIfTransform({Plugin, types: t }) {
-    return new Plugin('jsx-display-if', {
+export default function JsxDisplayIf({types: t}) {
+    return {
         visitor: {
-            JSXElement: function transform(node, parent) {
+            JSXElement: function transform(path) {
+                let { node } = path;
                 let ifAttributes = node.openingElement.attributes
                     .filter(({type, name}) => type === 'JSXAttribute' && name.name === 'display-if');
                 if (!ifAttributes.length) {
@@ -17,15 +18,22 @@ export default function jsxIfTransform({Plugin, types: t }) {
                 let newJsxElement = t.JSXElement(
                     newJsxOpeningElement,
                     node.closingElement,
-                    node.children
+                    node.children.map(child => {
+                        return child.type === 'JSXText'
+                            ? t.stringLiteral(child.value)
+                            : child;
+                    }).filter(child => {
+                        return child.type !== 'StringLiteral' ||
+                            /[^\s]/.test(child.value);
+                    })
                 );
                 let conditionalExpression = t.conditionalExpression(
                     ifAttribute.value.expression,
                     newJsxElement,
-                    t.literal(null)
+                    t.nullLiteral()
                 );
-                return conditionalExpression;
+                path.replaceWith(conditionalExpression);
             },
         }
-    });
+    }
 }

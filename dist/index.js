@@ -1,17 +1,17 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports['default'] = jsxIfTransform;
-
-function jsxIfTransform(_ref) {
-    var Plugin = _ref.Plugin;
+exports.default = JsxDisplayIf;
+function JsxDisplayIf(_ref) {
     var t = _ref.types;
 
-    return new Plugin('jsx-display-if', {
+    return {
         visitor: {
-            JSXElement: function transform(node, parent) {
+            JSXElement: function transform(path) {
+                var node = path.node;
+
                 var ifAttributes = node.openingElement.attributes.filter(function (_ref2) {
                     var type = _ref2.type;
                     var name = _ref2.name;
@@ -24,12 +24,12 @@ function jsxIfTransform(_ref) {
                 var newJsxOpeningElement = t.JSXOpeningElement(node.openingElement.name, node.openingElement.attributes ? node.openingElement.attributes.filter(function (attr) {
                     return attr !== ifAttribute;
                 }) : null);
-                var newJsxElement = t.JSXElement(newJsxOpeningElement, node.closingElement, node.children);
-                var conditionalExpression = t.conditionalExpression(ifAttribute.value.expression, newJsxElement, t.literal(null));
-                return conditionalExpression;
+                var newJsxElement = t.JSXElement(newJsxOpeningElement, node.closingElement, node.children.map(function (child) {
+                    return child.type === 'JSXText' ? t.stringLiteral(child.value) : child;
+                }));
+                var conditionalExpression = t.conditionalExpression(ifAttribute.value.expression, newJsxElement, t.nullLiteral());
+                path.replaceWith(conditionalExpression);
             }
         }
-    });
+    };
 }
-
-module.exports = exports['default'];
