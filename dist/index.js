@@ -26,6 +26,8 @@ function JsxDisplayIf(_ref) {
                 }) : null);
                 var newJsxElement = t.JSXElement(newJsxOpeningElement, node.closingElement, node.children.map(function (child) {
                     return child.type === 'JSXText' ? t.stringLiteral(child.value) : child;
+                }).filter(function (child) {
+                    return child.type !== 'StringLiteral' || /[^\s]/.test(child.value);
                 }));
                 var conditionalExpression = t.conditionalExpression(ifAttribute.value.expression, newJsxElement, t.nullLiteral());
                 path.replaceWith(conditionalExpression);
