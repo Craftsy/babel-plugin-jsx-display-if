@@ -22,6 +22,9 @@ export default function JsxDisplayIf({types: t}) {
                         return child.type === 'JSXText'
                             ? t.stringLiteral(child.value)
                             : child;
+                    }).filter(child => {
+                        return child.type !== 'StringLiteral' ||
+                            /[^\s]/.test(child.value);
                     })
                 );
                 let conditionalExpression = t.conditionalExpression(
