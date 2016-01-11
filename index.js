@@ -18,14 +18,7 @@ export default function JsxDisplayIf({types: t}) {
                 let newJsxElement = t.JSXElement(
                     newJsxOpeningElement,
                     node.closingElement,
-                    node.children.map(child => {
-                        return child.type === 'JSXText'
-                            ? t.stringLiteral(child.value)
-                            : child;
-                    }).filter(child => {
-                        return child.type !== 'StringLiteral' ||
-                            /[^\s]/.test(child.value);
-                    })
+                    node.children
                 );
                 let conditionalExpression = t.conditionalExpression(
                     ifAttribute.value.expression,
