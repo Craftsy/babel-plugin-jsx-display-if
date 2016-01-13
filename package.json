@@ -4,8 +4,8 @@
   "description": "babel plugin to add conditional display ala ng-if to jsx",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --reporter spec",
-    "build": "babel -d dist index.js"
+    "test": "node_modules/.bin/mocha --compilers js:babel-core/register --reporter spec",
+    "build": "node_modules/.bin/babel -d dist index.js"
   },
   "keywords": [
     "babel",
