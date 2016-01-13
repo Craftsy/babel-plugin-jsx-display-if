@@ -24,11 +24,7 @@ function JsxDisplayIf(_ref) {
                 var newJsxOpeningElement = t.JSXOpeningElement(node.openingElement.name, node.openingElement.attributes ? node.openingElement.attributes.filter(function (attr) {
                     return attr !== ifAttribute;
                 }) : null);
-                var newJsxElement = t.JSXElement(newJsxOpeningElement, node.closingElement, node.children.map(function (child) {
-                    return child.type === 'JSXText' ? t.stringLiteral(child.value) : child;
-                }).filter(function (child) {
-                    return child.type !== 'StringLiteral' || /[^\s]/.test(child.value);
-                }));
+                var newJsxElement = t.JSXElement(newJsxOpeningElement, node.closingElement, node.children);
                 var conditionalExpression = t.conditionalExpression(ifAttribute.value.expression, newJsxElement, t.nullLiteral());
                 path.replaceWith(conditionalExpression);
             }
