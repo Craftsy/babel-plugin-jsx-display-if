@@ -92,9 +92,15 @@ describe('jsx-if', function() {
         const compiled = transform(code, transformOptions).code;
         expect(b(compiled)).to.equal(b(expected));
     });
-    it('ignores whitespace only children', function () {
+    it('preserves whitespace only children', function () {
         const code = '<span display-if={boo}>          </span>';
-        const expected = '"use strict";\n\nboo ? j("span", null) : null;';
+        const expected = `"use strict";
+
+            boo ? j(
+                "span",
+                null,
+                "          "
+            ) : null;`;
         const compiled = transform(code, transformOptions).code;
         expect(b(compiled)).to.equal(b(expected));
     });
