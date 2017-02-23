@@ -1,5 +1,5 @@
-babel-plugin-jsx-display-if
-===================
+# babel-plugin-jsx-display-if
+[![npm version](https://img.shields.io/npm/v/babel-plugin-jsx-display-if.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-jsx-display-if) [![npm downloads](https://img.shields.io/npm/dm/babel-plugin-jsx-display-if.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-jsx-display-if)
 
 We use JSX because we want HTML gurus to maintain the JSX in our React Components.
 
@@ -53,11 +53,15 @@ class Example extends React.Component {
 }
 ```
 
-Use
----
+## Installation
+```sh
+npm install --save-dev babel-plugin-jsx-display-if
+```
 
-Install with `npm install --save-dev babel-plugin-jsx-display-if`. Then, add the plugin section to your .babelrc:
+## Use
+### Via `.babelrc` (Recommended)
 
+**.babelrc**
 ```
 {
     "optional": [...],
