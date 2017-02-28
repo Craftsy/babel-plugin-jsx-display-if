@@ -1,6 +1,9 @@
 # babel-plugin-jsx-display-if
 [![npm version](https://img.shields.io/npm/v/babel-plugin-jsx-display-if.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-jsx-display-if) [![npm downloads](https://img.shields.io/npm/dm/babel-plugin-jsx-display-if.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-jsx-display-if)
 
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7fa73e3de5ae4f2baecea481870c4055)](https://www.codacy.com/app/donabrams/babel-plugin-jsx-display-if?utm_source=github.com&utm_medium=referral&utm_content=Craftsy/babel-plugin-jsx-display-if&utm_campaign=badger)
+
 We use JSX because we want HTML gurus to maintain the JSX in our React Components.
 
 These examples are hard for non-JS people to modify and understand:
